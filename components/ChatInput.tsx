@@ -3,7 +3,7 @@
 import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
 import { FormEvent, useState } from "react";
 import { useSession } from "next-auth/react";
-import { serverTimestamp } from "firebase/database";
+import { serverTimestamp } from "firebase/firestore";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "@/firebase";
 import { toast } from "react-hot-toast";
@@ -55,7 +55,7 @@ function ChatInput({ chatId }: Props) {
         chatId,
         "messages"
       ),
-        message,
+      message
     );
 
     // Toast notification to say loading..

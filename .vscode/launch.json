@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/White/Desktop/chatgpt-2.0/pages/api/auth",
-      "program": "c:/Users/White/Desktop/chatgpt-2.0/pages/api/auth/build/Debug/outDebug",
+      "cwd": "c:/Users/White/Desktop/chatgpt-2.0/pages/api",
+      "program": "c:/Users/White/Desktop/chatgpt-2.0/pages/api/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

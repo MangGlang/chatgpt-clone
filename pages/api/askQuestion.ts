@@ -20,7 +20,7 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<Data>
 ) {
-
+try {
     // Destructing chat input 
     const {prompt, chatId, model, session } = req.body;
 
@@ -57,4 +57,8 @@ export default async function handler(
     .add(message);
 
     res.status(200).json({ answer: message.text })
+} catch (error) {
+    console.error("Error while saving message to Firestore:", error);
+    res.status(500).json({ answer: "An error occurred while processing the request." });
+}
 }

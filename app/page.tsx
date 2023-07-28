@@ -14,9 +14,9 @@ function HomePage() {
           </div>
 
           <div className="space-y-2">
-            <p className="infoText">"Explain something to me"</p>
-            <p className="infoText">"What is the difference between a cat and a dog?</p>
-            <p className="infoText">"How bright is a full moon?"</p>
+            <p className="infoText">&quot;Explain something to me&quot;</p>
+            <p className="infoText">&quot;What is the difference between a cat and a dog?&quot;</p>
+            <p className="infoText">&quot;How bright is a full moon?&quot;</p>
           </div>
         </div>
         <div>
@@ -27,7 +27,7 @@ function HomePage() {
 
           <div className="space-y-2">
             <p className="infoText">Change the chatGPT Model to use</p>
-            <p className="infoText">Messages are stored in Firebase's Firestore</p>
+            <p className="infoText">Messages are stored in Firebase&apos;s Firestore</p>
             <p className="infoText">Hot Toast Notifications when chatGPT is thinking!</p>
           </div>
         </div>

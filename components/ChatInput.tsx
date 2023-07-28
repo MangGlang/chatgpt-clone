@@ -7,6 +7,9 @@ import { serverTimestamp } from "firebase/firestore";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "@/firebase";
 import { toast } from "react-hot-toast";
+import ModelSelection from "./ModelSelection";
+import useSWR from 'swr'
+
 
 // Making API call
 // 1. Adding to firebase from client
@@ -21,8 +24,10 @@ function ChatInput({ chatId }: Props) {
   const [prompt, setPrompt] = useState("");
   const { data: session } = useSession();
 
-  // TODO: useSWR to get model
-  const model = "gpt-3.5-turbo";
+  // SWR: React Hooks for Data fetching by Vercel
+  const { data: model } = useSWR('model', {
+    fallbackData: 'text-davinci-003'
+})
 
   const sendMessage = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -30,7 +35,7 @@ function ChatInput({ chatId }: Props) {
     if (!prompt) return;
 
     const input = prompt.trim();
-    setPrompt("");
+    setPrompt(input);
 
     const message: Message = {
       text: input,
@@ -105,7 +110,9 @@ function ChatInput({ chatId }: Props) {
         </button>
       </form>
 
-      <div>{/* ModalSelection */}</div>
+      <div className="md:hidden">
+        <ModelSelection />
+      </div>
     </div>
   );
 }

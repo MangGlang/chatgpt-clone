@@ -22,6 +22,7 @@ export default async function handler(
 ) {
   // Destructing chat input
   const { prompt, chatId, model, session } = req.body;
+  console.log(prompt);
 
   if (!prompt) {
     res.status(400).json({ answer: "Please provide a prompt!" });
@@ -35,11 +36,12 @@ export default async function handler(
 
   // ChatGPT Query
   const response = await query(prompt, chatId, model);
+  const cleanedResponse = response?.replace(/\n+/g, '').trim();
 
   console.log("Response Object:", JSON.stringify(response));
 
   const message: Message = {
-    text: response || "ChatGPT was unable to find an answer for that!",
+    text: cleanedResponse || "ChatGPT was unable to find an answer for that!",
     // admin priv required for backend
     createdAt: admin.firestore.Timestamp.now(),
     user: {

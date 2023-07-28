@@ -22,7 +22,7 @@ function ChatInput({ chatId }: Props) {
   const { data: session } = useSession();
 
   // TODO: useSWR to get model
-  const model = "davinci";
+  const model = "gpt-3.5-turbo";
 
   const sendMessage = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
